@@ -113,14 +113,71 @@ const curriculum = [
 ];
 
 const moduleChapterOffsets = new Map([[2,0],[3,8],[4,15],[5,22],[6,30],[7,37],[8,44],[9,54],[10,63],[11,71],[12,78]]);
+const moduleRationales = {
+  2: 'Un produit en ligne n’est pas une seule page : comprendre les rôles du navigateur, du serveur et des données permet de suivre une action de bout en bout.',
+  3: 'Avant de demander à une machine de faire quelque chose, il faut transformer un besoin flou en étapes et en règles vérifiables.',
+  4: 'Dès qu’un produit doit retenir des informations, leur organisation détermine si elles restent cohérentes, retrouvables et protégées.',
+  5: 'Le code généré par une IA devient moins intimidant quand on sait quel fichier décrit l’écran, le comportement ou la structure du projet.',
+  6: 'Un compte ne sert pas seulement à entrer dans l’application : il relie une identité vérifiée à des actions et des données autorisées.',
+  7: 'La sécurité protège les personnes et l’activité contre les accès, fuites et changements qui n’auraient jamais dû être possibles.',
+  8: 'Un produit évolue après sa mise en ligne ; il faut pouvoir suivre les changements, les publier avec soin et les corriger.',
+  9: 'Un outil d’IA peut accélérer le travail, mais le résultat dépend du contexte fourni et doit rester vérifiable par une personne.',
+  10: 'Un projet avance mieux quand les besoins, les tâches et les preuves de réussite sont assez clairs pour être suivis sans deviner.',
+  11: 'Un SaaS réunit plusieurs pièces qui doivent fonctionner ensemble ; leur organisation influe sur la fiabilité, le coût et l’évolution.',
+  12: 'Un projet guidé permet d’assembler les notions dans un parcours complet et de découvrir les décisions réelles qu’un produit exige.'
+};
+const moduleProblems = {
+  2: 'Une page peut s’afficher alors que le contenu est faux, l’action échoue ou une donnée reste introuvable. Suivre le trajet de la demande aide à localiser le vrai problème.',
+  3: 'Une consigne vague laisse des décisions importantes implicites. Deux personnes — ou une IA — peuvent alors produire des résultats différents tout en croyant avoir bien compris.',
+  4: 'Des informations recopiées ou mal reliées finissent par se contredire, deviennent difficiles à retrouver et peuvent être attribuées à la mauvaise personne.',
+  5: 'Sans repérer le rôle des fichiers, une modification peut toucher le mauvais écran, casser une autre partie ou exposer une règle qui devait rester côté serveur.',
+  6: 'Un écran qui affiche « connecté » ne prouve pas à lui seul que l’identité a été vérifiée ni que chaque personne ne voit que ce qui lui appartient.',
+  7: 'Une fonction peut sembler correcte tout en laissant lire, modifier ou divulguer des informations à la mauvaise personne.',
+  8: 'Sans historique clair ni méthode de retour arrière, une erreur de modification ou de publication est difficile à comprendre et à réparer.',
+  9: 'Une réponse d’IA peut sembler convaincante tout en reposant sur une hypothèse fausse, un contexte incomplet ou un outil mal choisi.',
+  10: 'Quand le résultat attendu et les limites ne sont pas explicites, il devient difficile de savoir si le changement est terminé, correct ou sûr.',
+  11: 'Sans vue d’ensemble, les lenteurs, les pannes et les coûts peuvent apparaître aux frontières entre les différentes parties du service.',
+  12: 'Un prototype isolé ne suffit pas : il faut relier le besoin, les données, les accès, la mise en ligne et le suivi après lancement.'
+};
+const chapterProblems = {
+  9: 'Sans distinguer contenu, présentation et service qui héberge les fichiers, une page qui manque ou s’affiche mal est difficile à diagnostiquer.',
+  10: 'Une page informative et une application interactive n’ont pas les mêmes responsabilités : les actions doivent produire un résultat cohérent et souvent conserver des données.',
+  11: 'Un SaaS sert plusieurs clients à partir d’un même service. Une erreur de séparation peut exposer les informations d’un client à un autre.',
+  12: 'Un bouton ou un formulaire visible dans le navigateur ne peut pas, à lui seul, garantir une permission. Les règles sensibles doivent être contrôlées par le serveur.',
+  13: 'Si les règles métier sont dispersées ou exécutées seulement dans l’interface, un utilisateur peut contourner le parcours prévu ou obtenir un résultat incohérent.',
+  14: 'Sans stockage durable et organisé, les informations disparaissent entre les visites, se répètent ou ne peuvent pas être reliées de façon fiable.',
+  15: 'Quand deux logiciels n’ont pas un format et des règles d’échange convenus, ils interprètent mal les demandes ou acceptent des données invalides.',
+  16: 'Une inscription traverse plusieurs étapes. Si la validation, l’enregistrement ou la réponse échoue, l’utilisateur peut se retrouver avec un compte incomplet ou sans savoir quoi faire.'
+};
+
 window.additionalChapters = curriculum.map(([module,id,title,why,analogy,simple,intermediate,advanced,q,correct,wrongA,wrongB,caseText]) => {
   const m=window.academyModules.find(x=>x.id===module);
   const n=moduleChapterOffsets.get(module);
   const next=curriculum.filter(r=>r[0]===module).findIndex(r=>r[1]===id)+1;
-  const explain=`${correct} : c’est la fonction centrale de ${title.toLowerCase()}. ${caseText}`;
+  const explain=`${correct} : c’est la fonction centrale de ${title.toLowerCase()}. Gardez ce repère en tête lorsque vous examinerez le cas réel à la fin de la leçon.`;
   const termsForTitle=({2:['Frontend','Backend','API','Base de données','SaaS','Serveur'],3:['Algorithme','Fonction','Code','Critère de réussite'],4:['Base de données','SQL','Index','Clé primaire','Clé étrangère'],5:['HTML','CSS','JavaScript','React','Next.js','Code'],6:['Authentification','Cookie','Session','JWT','OAuth','OpenID Connect','Sécurité'],7:['Sécurité','Permissions','Données','Sauvegarde','Argon2id','Hachage','Sel cryptographique'],8:['Git','GitHub','Commit','Branche','Déploiement','Cloud'],9:['IA','Contexte','Agent IA','MCP','Code'],10:['Contexte','Architecture','Déploiement','Erreur'],11:['Architecture','Performance','Cloud','Logs'],12:['SaaS','Architecture','Sécurité','IA','Déploiement']})[module];
   const stepLabels=module===4?['Tableur','Tables','Relations','Application']:module===5?['Fichier','Rôle','Comportement','Vérification']:module===6?['Utilisateur','Vérification','Accès','Service']:module===7?['Ressource','Risque','Protection','Contrôle']:module===8?['Changement','Historique','Publication','Service']:module===9?['Besoin','Contexte','IA','Vérification']:module===10?['Problème','Plan','Petite étape','Preuve']:module===11?['Utilisateur','Interface','Service','Données']:module===12?['Besoin','Prototype','Vérification','Lancement']:module===3?['Problème','Étapes','Règle','Résultat']:['Visiteur','Interface','Service','Réponse'];
-  return {id:String(9+n+next-1),module,title,time:'10 min',lead:`${why} ${simple}`,why:`${why} Cette notion vous donne un repère pour comprendre les décisions prises lors de la création d’un produit numérique.`,problem:`Sans ${title.toLowerCase()}, il est difficile de transformer une intention en comportement fiable. Vous risquez de laisser l’outil choisir une règle sans savoir si elle convient à vos utilisateurs.`,analogy,simple,intermediate,advanced,diagram:stepLabels.map((s,i)=>[s,['entrée','étape','règle','résultat'][i]]),terms:[...new Set([title.split(':')[0].trim(),...termsForTitle])],quiz:{q,options:[correct,wrongA,wrongB],answer:0,explain},exercise:`Prenez un exemple de votre projet et décrivez comment ${title.toLowerCase()} intervient : qui l’utilise, quel résultat est attendu et comment pourriez-vous vérifier ce résultat ?`,simulation:`Mise en situation : ${caseText} Touchez les étapes du schéma pour relier la décision à un résultat observable.`,summary:`À retenir : ${title}. ${simple} Avant de continuer, expliquez cette idée avec vos mots et donnez un exemple lié à votre projet.`,mind:`Besoin → ${title} → règle de fonctionnement → vérification → résultat`,cards:[[`Que signifie « ${title} » ?`,simple],[`Quel point faut-il vérifier pour ${title.toLowerCase()} ?`,advanced]],case:caseText,lessonNumber:next};
+  const chapterId=String(9+n+next-1);
+  return {id:chapterId,module,title,time:'10 min',lead:`Pour \u00ab ${title} \u00bb, apprenez à repérer son rôle dans un produit et à vérifier le résultat qu’elle doit produire.`,why:moduleRationales[module],problem:chapterProblems[chapterId]||`${moduleProblems[module]} Pour « ${title} », identifiez la décision à prendre et le signe concret qui permettrait de repérer un échec.`,definition:why,analogy,simple,intermediate,advanced,diagram:stepLabels.map((s,i)=>[s,['entrée','étape','règle','résultat'][i]]),terms:[...new Set([title.split(':')[0].trim(),...termsForTitle])],quiz:{q,options:[correct,wrongA,wrongB],answer:0,explain},exercise:`Prenez un exemple de votre projet et décrivez comment ${title.toLowerCase()} intervient : qui l’utilise, quel résultat est attendu et comment pourriez-vous vérifier ce résultat ?`,simulation:`Touchez chaque étape du schéma. Nommez son entrée, ce qu’elle fait et ce qu’elle transmet à la suivante. Repérez aussi l’étape où vous voudriez voir une erreur signalée.`,summary:`À retenir : ${title}. ${simple} Avant de continuer, expliquez cette idée avec vos mots et donnez un exemple lié à votre projet.`,mind:`Besoin → ${title} → règle de fonctionnement → vérification → résultat`,cards:[[`Que signifie « ${title} » ?`,why],[`Quel point faut-il vérifier pour ${title.toLowerCase()} ?`,advanced]],case:caseText,lessonNumber:next};
+});
+const webChapter = window.additionalChapters.find(chapter => chapter.id === '9');
+Object.assign(webChapter, {
+  title: 'Le Web et les sites web',
+  lead: 'Avant de parler d’un site, distinguons le Web d’Internet. Puis suivons comment une page arrive jusqu’à votre navigateur.',
+  why: 'On emploie souvent « Internet » et « Web » comme s’ils désignaient la même chose. Les distinguer aide à comprendre pourquoi un site peut être inaccessible alors que d’autres services Internet fonctionnent encore.',
+  problem: 'Internet relie les appareils et transporte leurs échanges. Le Web est un service qui utilise ce réseau pour consulter des ressources reliées entre elles. Un site web est un ensemble de pages ou de fonctions publié sur le Web.',
+  definition: 'Le Web (World Wide Web) est un système de ressources reliées, consultées avec un navigateur. Un site web regroupe des pages et des fonctions accessibles sous une même adresse de site.',
+  analogy: 'Internet ressemble au réseau de routes. Le Web est un service qui circule sur ces routes, comme un système de bibliothèques et de documents reliés. Un site est une bibliothèque précise ; une page est l’un de ses documents.',
+  simple: 'Quand vous ouvrez une adresse, le navigateur demande des fichiers ou des données à un serveur. Il assemble ce qu’il reçoit pour afficher une page. Le Web utilise Internet, mais Internet sert aussi au courrier électronique, aux appels vidéo et à d’autres services.',
+  intermediate: 'Un site peut servir des fichiers déjà préparés ou produire une page à partir des données d’une application. Le navigateur reçoit la réponse du serveur puis charge, selon le besoin, le texte, les images, la présentation et les interactions.',
+  advanced: 'Le navigateur utilise une URL pour identifier une ressource et contacte le serveur au moyen de protocoles du Web comme HTTP ou HTTPS. Le serveur peut répondre avec des fichiers ou calculer une réponse à partir des règles et données de l’application. Le navigateur interprète ensuite ces éléments.',
+  terms: ['Web', 'Site web', 'Internet', 'Navigateur', 'URL', 'Serveur', 'HTTP', 'HTTPS'],
+  diagram: [['Visiteur', 'saisit une URL'], ['Internet', 'transporte la demande'], ['Serveur Web', 'renvoie les ressources'], ['Navigateur', 'affiche le site']],
+  exercise: 'Expliquez avec vos mots la différence entre Internet, le Web et un site web. Donnez ensuite un exemple d’un service Internet qui n’est pas le Web.',
+  simulation: 'Suivez une visite : une personne saisit une adresse, le navigateur demande la page, le serveur répond et le navigateur l’affiche. Indiquez à chaque étape si elle relève du réseau Internet ou du service Web.',
+  summary: 'Internet est l’infrastructure de communication. Le Web est un service qui l’utilise. Un site web est un ensemble de ressources consultées grâce à un navigateur.',
+  mind: 'Internet → transporte les échanges → Web → relie des ressources → site → pages et fonctions',
+  cards: [['Internet et Web', 'Internet relie les réseaux ; le Web est un service qui fonctionne grâce à Internet.'], ['Site et page', 'Un site regroupe des pages et des fonctions ; une page est une ressource affichée dans le navigateur.']]
 });
 // Vary answer position deterministically: learners cannot pass by repeatedly
 // selecting the first option, while the curriculum remains reproducible.
@@ -133,6 +190,8 @@ for (const [m,id,title,why,analogy,simple,intermediate,advanced,q,correct,wrongA
 }
 Object.assign(window.additionalTerms,{
   'Web':['Service qui permet de consulter des pages et applications reliées par des liens via un navigateur.','Un ensemble de documents interconnectés que l’on consulte avec un lecteur.','Vous consultez un site web dans un navigateur, en utilisant Internet.','Le Web est un service qui utilise Internet ; ce ne sont pas des synonymes.','Le World Wide Web combine des ressources identifiées par des URL, liées entre elles et transférées principalement au moyen de HTTP.'],
+  'Site web':['Ensemble de pages et de fonctions publiées sous une même adresse de site.','Une bibliothèque en ligne qui regroupe plusieurs documents et espaces.','La page d’accueil et la page de contact d’une entreprise appartiennent à son site web.','Un site web n’est pas forcément une application interactive.','Un site web est un ensemble de ressources du Web associées à un domaine ou à une partie de domaine.'],
+  'Navigateur':['Application qui demande des ressources Web et les affiche sur votre appareil.','Un lecteur qui va chercher des documents et les met en forme pour vous.','Chrome, Firefox, Safari et Edge sont des navigateurs.','Le navigateur affiche un site ; il n’héberge pas automatiquement le site lui-même.','Un navigateur interprète des ressources Web et permet à l’utilisateur de suivre des liens et d’interagir avec des pages.'],
   'Datacenter':['Bâtiment spécialisé qui héberge des serveurs et leur infrastructure.','Un grand local technique avec machines, électricité, refroidissement et réseau.','Un fournisseur cloud exploite des datacenters dans plusieurs régions.','Le cloud n’est pas immatériel : les services reposent sur du matériel et des installations.','Un datacenter fournit un environnement contrôlé pour alimenter, refroidir, connecter et maintenir des systèmes informatiques.'],
   'Réponse':['Résultat renvoyé par un service après une demande.','Le colis livré après qu’une commande a été passée.','Le serveur renvoie une page ou un code de résultat au navigateur.','Une réponse peut signaler une erreur ou un refus, pas seulement une réussite.','Dans un échange client-serveur, la réponse transporte un statut et éventuellement des données liées à la requête.'],
   'API':['Interface définie par laquelle un logiciel demande un service ou des données à un autre.','Un guichet prend une demande dans un format connu et rapporte la réponse.','Une application de réservation demande à une API les créneaux disponibles.','Une API doit valider les entrées et appliquer les règles d’accès nécessaires.','Le contrat d’une API décrit les actions, entrées, sorties et contraintes qui permettent à deux logiciels de communiquer.'],

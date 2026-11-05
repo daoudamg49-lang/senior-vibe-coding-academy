@@ -1,5 +1,5 @@
-const SHELL_CACHE = 'svca-shell-v1';
-const RUNTIME_CACHE = 'svca-runtime-v1';
+const SHELL_CACHE = 'svca-shell-v2';
+const RUNTIME_CACHE = 'svca-runtime-v2';
 const APP_ROOT = new URL('./', self.registration.scope).href;
 const CORE_FILES = [
   './',
