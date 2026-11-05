@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Senior Vibe Coding Academy â€” comprendre la technologie pour piloter l'IA et lancer un SaaS." />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <title>Senior Vibe Coding Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="themes.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Accueil Senior Vibe Coding Academy"><span class="brand-mark" aria-hidden="true">SV</span><span class="brand-copy"><strong>Senior Vibe</strong><small>CODING ACADEMY</small></span></a>
+      <div class="side-label">APPRENTISSAGE</div>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <button class="nav-item active" data-view="home"><span class="nav-icon">âŒ‚</span> Vue dâ€™ensemble</button>
+        <button class="nav-item" data-view="path"><span class="nav-icon">â—«</span> Parcours</button>
+        <button class="nav-item" data-view="mindmap"><span class="nav-icon">âœ³</span> Carte mentale</button>
+        <button class="nav-item" data-view="glossary"><span class="nav-icon">Aa</span> Dictionnaire <span class="nav-count">12</span></button>
+        <button class="nav-item" data-view="saved"><span class="nav-icon">â˜†</span> Mes favoris</button>
+        <button class="nav-item" data-view="history"><span class="nav-icon">â—·</span> Historique</button>
+        <button class="nav-item" data-view="achievements"><span class="nav-icon">âœ¦</span> Badges & certificat</button>
+      </nav>
+      <button class="side-label modules-label" id="moduleNavToggle" aria-expanded="true" aria-controls="moduleNav"><span>VOTRE PARCOURS</span><span class="module-toggle-icon" aria-hidden="true">âŒ„</span></button>
+      <div id="moduleNav" class="module-nav"></div>
+      <div class="sidebar-bottom"><div class="side-user"><div class="avatar" aria-hidden="true">S</div><div><strong>Mon apprentissage</strong><small id="sidebarLevel">Niveau 1 Â· 0 XP</small></div></div></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button class="mobile-menu" id="menuToggle" aria-label="Ouvrir le menu">â˜°</button><div class="breadcrumb"><span>AcadÃ©mie</span><span class="crumb-slash">/</span><strong id="crumbCurrent">Vue dâ€™ensemble</strong></div><div class="top-actions"><label class="search-box"><span>âŒ•</span><input id="searchInput" type="search" placeholder="Rechercher un conceptâ€¦" aria-label="Rechercher" /><kbd>âŒ˜ K</kbd></label><label class="theme-control" title="Changer de thÃ¨me"><span aria-hidden="true">â—</span><select id="themeSelect" aria-label="ThÃ¨me de lâ€™application"><option value="midnight">Minuit</option><option value="light">Clair</option><option value="ocean">OcÃ©an</option></select></label><button class="icon-button" id="notesOpen" aria-label="Mes notes" title="Mes notes">â–¤</button><button class="streak-pill" title="SÃ©rie dâ€™apprentissage"><span>ÏŸ</span> <b id="streakCount">0</b><small>jours</small></button></div></header>
+      <div id="appContent" class="content"></div>
+      <footer class="footer"><span>Senior Vibe Coding Academy</span><span>Apprendre Ã  comprendre. Construire avec intention.</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <dialog id="noteDialog" class="modal"><form method="dialog"><div class="modal-head"><div><span class="eyebrow">ESPACE PERSONNEL</span><h2>Mes notes</h2></div><button class="icon-button close-dialog" aria-label="Fermer">Ã—</button></div><p class="muted">Gardez ici vos idÃ©es et questions. Elles sont sauvegardÃ©es sur cet appareil.</p><textarea id="notesText" placeholder="Une idÃ©e Ã  retenir, une question Ã  explorerâ€¦"></textarea><div class="modal-foot"><span id="notesSaved">Sauvegarde automatique</span><button class="button primary close-dialog">TerminÃ© <span>â†’</span></button></div></form></dialog>
+  <dialog id="glossaryDialog" class="modal glossary-modal"><form method="dialog"><button class="icon-button close-dialog modal-x" aria-label="Fermer">Ã—</button><div id="glossaryBody"></div></form></dialog>
+  <script src="curriculum.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>
+
