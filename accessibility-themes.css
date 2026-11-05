@@ -318,3 +318,30 @@ html[data-theme="light"] .interactive-diagram .step-index{border-color:#c4d2e8;b
 html[data-theme="light"] .interactive-diagram .flow-node.diagram-step:hover,html[data-theme="light"] .interactive-diagram .flow-node.diagram-step.selected,html[data-theme="light"] .interactive-diagram .flow-node.diagram-step.active{border-color:#6891e8;background:linear-gradient(145deg,#eef4ff,#e4ecfc);box-shadow:0 10px 25px #3b82f626}
 html[data-theme="light"] .interactive-diagram .diagram-caption{color:#485b77}
 html[data-theme="light"] .interactive-diagram .sim-status{border-color:#d7e1f0;background:#f8faff;color:#34445f}
+
+/* Quiz feedback stays unmistakable in every color theme. */
+.quiz .quiz-option{position:relative;min-height:42px;padding:10px 104px 10px 42px;transition:background .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease}
+.quiz .quiz-option.correct{border:2px solid #31b86e;background:#123b2c;color:#d8ffe7;font-weight:700;box-shadow:0 0 0 2px #22c55e22,0 6px 18px #16a34a20}
+.quiz .quiz-option.wrong{border:2px solid #ed7185;background:#421e2a;color:#ffe3e8;font-weight:700;box-shadow:0 0 0 2px #ef444422,0 6px 18px #ef44441a}
+.quiz .quiz-option.correct:before,.quiz .quiz-option.wrong:before{position:absolute;left:12px;top:50%;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;font-size:14px;font-weight:900;transform:translateY(-50%)}
+.quiz .quiz-option.correct:before{content:"\2713";background:#1b6b43;color:#d9ffe8}
+.quiz .quiz-option.wrong:before{content:"\2715";background:#7b3040;color:#fff0f2}
+.quiz .quiz-option.correct:after,.quiz .quiz-option.wrong:after{position:absolute;right:9px;top:50%;padding:4px 7px;border-radius:999px;font-size:8px;font-weight:800;letter-spacing:.04em;transform:translateY(-50%)}
+.quiz .quiz-option.correct:after{content:"BONNE RÉPONSE";background:#1b6b43;color:#d9ffe8}
+.quiz .quiz-option.wrong:after{content:"VOTRE CHOIX";background:#7b3040;color:#fff0f2}
+.quiz .quiz-feedback.is-correct,.quiz .quiz-feedback.is-wrong{margin-top:11px;padding:10px 12px;border:1px solid;border-radius:9px;font-size:11px;font-weight:600;line-height:1.55}
+.quiz .quiz-feedback.is-correct{border-color:#31b86e;background:#123b2c;color:#d8ffe7}
+.quiz .quiz-feedback.is-wrong{border-color:#ed7185;background:#421e2a;color:#ffe3e8}
+html[data-theme="light"] .quiz .quiz-option.correct{border-color:#18834c;background:#e6f6ed;color:#164c2e;box-shadow:0 0 0 2px #16a34a18,0 5px 14px #16653412}
+html[data-theme="light"] .quiz .quiz-option.wrong{border-color:#c3324b;background:#fff0f1;color:#6c1d2a;box-shadow:0 0 0 2px #dc262618,0 5px 14px #991b1b10}
+html[data-theme="light"] .quiz .quiz-option.correct:before,html[data-theme="light"] .quiz .quiz-option.correct:after{background:#d0efdc;color:#14532d}
+html[data-theme="light"] .quiz .quiz-option.wrong:before,html[data-theme="light"] .quiz .quiz-option.wrong:after{background:#f8d9de;color:#7f1d2d}
+html[data-theme="light"] .quiz .quiz-feedback.is-correct{border-color:#18834c;background:#e6f6ed;color:#164c2e}
+html[data-theme="light"] .quiz .quiz-feedback.is-wrong{border-color:#c3324b;background:#fff0f1;color:#6c1d2a}
+html[data-theme="ocean"] .quiz .quiz-option.correct{border-color:#2dd4bf;background:#103c3d;color:#d4fff8;box-shadow:0 0 0 2px #2dd4bf22,0 5px 16px #0f766e2b}
+html[data-theme="ocean"] .quiz .quiz-option.wrong{border-color:#fb7185;background:#42232d;color:#ffe7ec;box-shadow:0 0 0 2px #fb718522,0 5px 16px #be123c20}
+html[data-theme="ocean"] .quiz .quiz-option.correct:before,html[data-theme="ocean"] .quiz .quiz-option.correct:after{background:#145b57;color:#dbfffa}
+html[data-theme="ocean"] .quiz .quiz-option.wrong:before,html[data-theme="ocean"] .quiz .quiz-option.wrong:after{background:#753647;color:#fff0f2}
+html[data-theme="ocean"] .quiz .quiz-feedback.is-correct{border-color:#2dd4bf;background:#103c3d;color:#d4fff8}
+html[data-theme="ocean"] .quiz .quiz-feedback.is-wrong{border-color:#fb7185;background:#42232d;color:#ffe7ec}
+@media(max-width:520px){.quiz .quiz-option{padding-right:12px;padding-bottom:30px}.quiz .quiz-option.correct:after,.quiz .quiz-option.wrong:after{top:auto;right:10px;bottom:6px;transform:none}}
