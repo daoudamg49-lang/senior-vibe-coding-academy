@@ -160,6 +160,7 @@ applyTheme(state.theme||'midnight');
 themeSelect.onchange=()=>applyTheme(themeSelect.value,true);
 document.querySelectorAll('.nav-item').forEach(b=>b.onclick=()=>{closeMobileSidebar();navigate(b.dataset.view)});$('#notesOpen').onclick=openNotes;
 document.querySelectorAll('.close-dialog').forEach(b=>b.onclick=e=>{e.preventDefault();b.closest('dialog').close()});
+document.querySelectorAll('dialog.modal').forEach(dialog=>dialog.addEventListener('click',event=>{const bounds=dialog.getBoundingClientRect();const inside=event.clientX>=bounds.left&&event.clientX<=bounds.right&&event.clientY>=bounds.top&&event.clientY<=bounds.bottom;if(!inside)dialog.close()}));
 $('#notesText').oninput=e=>{state.notes=e.target.value;save();$('#notesSaved').textContent='Sauvegardé à l’instant'};
 $('#searchInput').oninput=e=>{const v=e.target.value.trim();if(v.length>1)renderSearch(v);else if(!v)renderHome()};$('#searchInput').onkeydown=e=>{if(e.key==='Escape'){e.target.value='';renderHome()}};
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#searchInput').focus();if(innerWidth<560)$('#searchInput').closest('.search-box').classList.add('expanded')}});

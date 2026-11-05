@@ -204,6 +204,53 @@ html[data-theme="light"] .path-node.course-node.is-complete .course-status { bac
 html[data-theme="light"] .course-empty { color: #475569; }
 html[data-theme="light"] .theme-control option { background: #fff; color: #111827; }
 
+/* Modal text and controls stay readable in the light theme. */
+html[data-theme="light"] .modal {
+  color: #111827;
+  background: #fff;
+  border: 1px solid #94a3b8;
+  box-shadow: 0 24px 80px #0f172a3d;
+}
+html[data-theme="light"] .modal::backdrop { background: #0f172a99; }
+html[data-theme="light"] .modal h2 { color: #111827; font-size: 24px; }
+html[data-theme="light"] .modal p,
+html[data-theme="light"] .modal .muted,
+html[data-theme="light"] .modal .definition-block p {
+  color: #263548 !important;
+  font-size: 15px !important;
+  line-height: 1.75;
+}
+html[data-theme="light"] .modal .eyebrow,
+html[data-theme="light"] .modal .definition-block label {
+  color: #174ea6;
+  font-size: 12px;
+  font-weight: 700;
+}
+html[data-theme="light"] .modal .definition-block { border-color: #cbd5e1; }
+html[data-theme="light"] .modal textarea {
+  min-height: 190px;
+  color: #111827;
+  background: #fff;
+  border-color: #64748b;
+  font-size: 15px;
+}
+html[data-theme="light"] .modal textarea::placeholder { color: #64748b; opacity: 1; }
+html[data-theme="light"] .modal .close-dialog.icon-button {
+  width: 40px;
+  height: 40px;
+  color: #111827;
+  background: #e8eef6;
+  border-color: #64748b;
+  font-size: 21px;
+}
+html[data-theme="light"] .modal-foot > span { color: #334155; font-size: 12px; }
+html[data-theme="light"] .modal .button { min-height: 40px; font-size: 14px; }
+.modal.glossary-modal { max-height: min(86vh, 760px); overflow-y: auto; }
+@media (max-width: 560px) {
+  .modal.glossary-modal { max-height: 88vh; padding: 20px; }
+  html[data-theme="light"] .modal .definition-block p { font-size: 14px !important; }
+}
+
 html[data-theme="vscode"] .course-section-heading { border-color: #454545; color: #f3f3f3; }
 html[data-theme="vscode"] .course-section-heading .course-count,
 html[data-theme="vscode"] .path-node.course-node .course-id,
