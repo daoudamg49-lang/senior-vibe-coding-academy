@@ -1,0 +1,228 @@
+/* Larger type, stronger contrast and clear course states. */
+html[data-theme="light"] {
+  --bg: #f4f6fa;
+  --panel: #ffffff;
+  --panel-2: #eef2f7;
+  --line: #cbd5e1;
+  --muted: #334155;
+  --text: #111827;
+}
+
+html[data-theme="light"] body { font-size: 16px; }
+html[data-theme="light"] .content p,
+html[data-theme="light"] .hero p,
+html[data-theme="light"] .module-card p,
+html[data-theme="light"] .continue-card p,
+html[data-theme="light"] .path-head p,
+html[data-theme="light"] .lesson-lead,
+html[data-theme="light"] .learn-section p,
+html[data-theme="light"] .glossary-card p,
+html[data-theme="light"] .complete-panel p {
+  color: #263548 !important;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+html[data-theme="light"] .side-label,
+html[data-theme="light"] .module-status,
+html[data-theme="light"] .stat-label,
+html[data-theme="light"] .stat-sub,
+html[data-theme="light"] .chapter-meta,
+html[data-theme="light"] .path-trail,
+html[data-theme="light"] .content small,
+html[data-theme="light"] .footer,
+html[data-theme="light"] .breadcrumb {
+  color: #475569 !important;
+  font-size: 12px;
+}
+
+html[data-theme="light"] .nav-item,
+html[data-theme="light"] .module-link,
+html[data-theme="light"] .chapter-row,
+html[data-theme="light"] .path-node,
+html[data-theme="light"] .quiz-option {
+  color: #172033;
+  font-size: 14px;
+}
+
+html[data-theme="light"] .chapter-name,
+html[data-theme="light"] .path-node strong,
+html[data-theme="light"] .glossary-card h3,
+html[data-theme="light"] .section-heading h2 {
+  color: #111827;
+  font-size: 15px;
+}
+
+html[data-theme="light"] .eyebrow,
+html[data-theme="light"] .term,
+html[data-theme="light"] .text-button,
+html[data-theme="light"] .jargon-item button {
+  color: #174ea6;
+}
+
+html[data-theme="vscode"] {
+  color-scheme: dark;
+  --bg: #1e1e1e;
+  --panel: #252526;
+  --panel-2: #2d2d30;
+  --line: #454545;
+  --muted: #c5c5c5;
+  --text: #f3f3f3;
+  --blue: #4daafc;
+  --violet: #c586c0;
+  --green: #89d185;
+  --yellow: #e5c07b;
+  --red: #f48771;
+  font-family: "Segoe UI", Inter, system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+html[data-theme="vscode"] body { background: #1e1e1e; font-size: 15px; }
+html[data-theme="vscode"] .sidebar { background: #181818; border-color: #3c3c3c; }
+html[data-theme="vscode"] .topbar { background: #1e1e1eeF; border-color: #3c3c3c; }
+html[data-theme="vscode"] .sidebar-bottom { background: #181818; border-color: #3c3c3c; }
+html[data-theme="vscode"] .brand-mark { background: #007acc; border-color: #1684d4; color: #fff; }
+html[data-theme="vscode"] .brand-copy small,
+html[data-theme="vscode"] .side-label,
+html[data-theme="vscode"] .module-status,
+html[data-theme="vscode"] .footer,
+html[data-theme="vscode"] .breadcrumb,
+html[data-theme="vscode"] .chapter-meta,
+html[data-theme="vscode"] .path-trail,
+html[data-theme="vscode"] .stat-label,
+html[data-theme="vscode"] .stat-sub,
+html[data-theme="vscode"] .content small { color: #c5c5c5; }
+
+html[data-theme="vscode"] .nav-item,
+html[data-theme="vscode"] .module-link { color: #d4d4d4; font-size: 13px; }
+html[data-theme="vscode"] .nav-item:hover,
+html[data-theme="vscode"] .module-link:hover { background: #2a2d2e; color: #fff; }
+html[data-theme="vscode"] .nav-item.active,
+html[data-theme="vscode"] .module-link.current { background: #37373d; color: #fff; box-shadow: inset 2px 0 #007acc; }
+html[data-theme="vscode"] .nav-item.active .nav-icon,
+html[data-theme="vscode"] .eyebrow { color: #75beff; }
+html[data-theme="vscode"] .search-box,
+html[data-theme="vscode"] .theme-control,
+html[data-theme="vscode"] .icon-button { background: #252526; border-color: #555; color: #e4e4e4; }
+html[data-theme="vscode"] .search-box input { color: #f3f3f3; }
+html[data-theme="vscode"] .search-box input::placeholder { color: #b7b7b7; }
+html[data-theme="vscode"] .theme-control option { background: #252526; color: #f3f3f3; }
+html[data-theme="vscode"] .hero { background: linear-gradient(115deg, #252526, #252a32); border-color: #4a4a4a; }
+html[data-theme="vscode"] .hero:after { background: #007acc30; }
+html[data-theme="vscode"] .hero h1 span { color: #75beff; }
+html[data-theme="vscode"] .hero p,
+html[data-theme="vscode"] .hero-meta,
+html[data-theme="vscode"] .module-card p,
+html[data-theme="vscode"] .continue-card p,
+html[data-theme="vscode"] .path-head p,
+html[data-theme="vscode"] .learn-section p,
+html[data-theme="vscode"] .lesson-lead,
+html[data-theme="vscode"] .glossary-card p,
+html[data-theme="vscode"] .complete-panel p { color: #d0d0d0; }
+
+html[data-theme="vscode"] .stat-card,
+html[data-theme="vscode"] .module-card,
+html[data-theme="vscode"] .continue-card,
+html[data-theme="vscode"] .panel,
+html[data-theme="vscode"] .path-module,
+html[data-theme="vscode"] .aside-card,
+html[data-theme="vscode"] .glossary-card,
+html[data-theme="vscode"] .search-result,
+html[data-theme="vscode"] .quick-card,
+html[data-theme="vscode"] .learn-section,
+html[data-theme="vscode"] .level-card,
+html[data-theme="vscode"] .jargon-item,
+html[data-theme="vscode"] .quiz,
+html[data-theme="vscode"] .quiz-option,
+html[data-theme="vscode"] .flashcard,
+html[data-theme="vscode"] .diagram,
+html[data-theme="vscode"] .mindmap,
+html[data-theme="vscode"] .map-node {
+  background-color: #252526;
+  border-color: #454545;
+  color: #f3f3f3;
+}
+
+html[data-theme="vscode"] .path-node,
+html[data-theme="vscode"] .chapter-row,
+html[data-theme="vscode"] .chapter-list { border-color: #454545; color: #e8e8e8; }
+html[data-theme="vscode"] .path-node strong,
+html[data-theme="vscode"] .chapter-name,
+html[data-theme="vscode"] .section-heading h2,
+html[data-theme="vscode"] .glossary-card h3,
+html[data-theme="vscode"] .level-card strong { color: #f3f3f3; }
+html[data-theme="vscode"] .path-node:hover,
+html[data-theme="vscode"] .chapter-row:hover { background: #2a2d2e; }
+html[data-theme="vscode"] .module-tag,
+html[data-theme="vscode"] .path-number,
+html[data-theme="vscode"] .quick-icon,
+html[data-theme="vscode"] .flow-node { background: #263746; color: #75beff; border-color: #41617a; }
+html[data-theme="vscode"] .button.primary { background: #007acc; border-color: #1684d4; color: #fff; box-shadow: none; }
+html[data-theme="vscode"] .term { color: #75beff; border-color: #4daafc; }
+html[data-theme="vscode"] .analogy,
+html[data-theme="vscode"] .why-card { background: #29262d; border-color: #5f4a62; }
+html[data-theme="vscode"] .analogy p,
+html[data-theme="vscode"] .why-card p { color: #ece6ed; }
+html[data-theme="vscode"] .complete-panel { background: #1d2b22; border-color: #44724f; }
+html[data-theme="vscode"] .modal { background: #252526; border-color: #555; color: #f3f3f3; }
+html[data-theme="vscode"] .modal textarea { background: #1e1e1e; border-color: #555; color: #f3f3f3; }
+html[data-theme="vscode"] .map-node.active { background: #263746; border-color: #4daafc; }
+html[data-theme="vscode"] :focus-visible { outline: 3px solid #75beff; outline-offset: 2px; }
+html[data-theme="vscode"] pre,
+html[data-theme="vscode"] code,
+html[data-theme="vscode"] kbd { font-family: "Cascadia Code", "JetBrains Mono", Consolas, monospace; }
+
+/* The course list distinguishes completed lessons from the work ahead. */
+.module-course-groups { display: grid; gap: 22px; padding: 0 18px 18px 65px; }
+.course-section { min-width: 0; }
+.course-section-heading { display: flex; align-items: center; gap: 9px; padding: 12px 0 8px; border-bottom: 1px solid #34415a; color: #e8eef8; font-size: 14px; font-weight: 700; }
+.course-section-heading .course-count { margin-left: auto; color: #c5d0e0; font-size: 13px; font-weight: 600; }
+.course-items { display: grid; }
+.path-node.course-node { min-height: 52px; padding: 10px 8px; gap: 12px; border-top: 0; border-bottom: 1px solid #2b3547; border-radius: 6px; }
+.path-node.course-node:hover { background: #ffffff08; }
+.path-node.course-node .course-id { flex: 0 0 42px; color: #b8c4d7; font: 600 12px "JetBrains Mono", Consolas, monospace; }
+.path-node.course-node .course-title { flex: 1; color: #f1f5fb; font-size: 14px; line-height: 1.45; }
+.path-node.course-node .course-time { margin-left: 0; color: #b8c4d7; font-size: 12px; white-space: nowrap; }
+.path-node.course-node .course-status { flex: 0 0 auto; padding: 5px 8px; border: 1px solid #44638a; border-radius: 999px; background: #1e2b3f; color: #c3d8ff; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.path-node.course-node.is-complete { background: #10231b; }
+.path-node.course-node.is-complete .course-title { color: #b6c8bd; text-decoration: line-through; text-decoration-thickness: 1.5px; text-decoration-color: #75c992; }
+.path-node.course-node.is-complete .course-id { color: #8bd6a1; }
+.path-node.course-node.is-complete .course-status { border-color: #378253; background: #183b28; color: #a4efb6; }
+.course-empty { margin: 0; padding: 14px 0; color: #aab6c8; font-size: 13px; line-height: 1.6; }
+
+html[data-theme="light"] .course-section-heading { border-color: #cbd5e1; color: #111827; }
+html[data-theme="light"] .course-section-heading .course-count { color: #334155; }
+html[data-theme="light"] .path-node.course-node { border-color: #d4dce7; }
+html[data-theme="light"] .path-node.course-node .course-id { color: #334155; }
+html[data-theme="light"] .path-node.course-node .course-title { color: #111827; font-size: 15px; }
+html[data-theme="light"] .path-node.course-node .course-time { color: #475569; font-size: 13px; }
+html[data-theme="light"] .path-node.course-node .course-status { background: #e9f1ff; border-color: #8ba8d4; color: #174ea6; }
+html[data-theme="light"] .path-node.course-node.is-complete { background: #edf7f0; }
+html[data-theme="light"] .path-node.course-node.is-complete .course-title { color: #52665a; text-decoration-color: #24804b; }
+html[data-theme="light"] .path-node.course-node.is-complete .course-status { background: #d9f2e1; border-color: #70b789; color: #14532d; }
+html[data-theme="light"] .course-empty { color: #475569; }
+html[data-theme="light"] .theme-control option { background: #fff; color: #111827; }
+
+html[data-theme="vscode"] .course-section-heading { border-color: #454545; color: #f3f3f3; }
+html[data-theme="vscode"] .course-section-heading .course-count,
+html[data-theme="vscode"] .path-node.course-node .course-id,
+html[data-theme="vscode"] .path-node.course-node .course-time { color: #d0d0d0; }
+html[data-theme="vscode"] .path-node.course-node { border-color: #454545; }
+html[data-theme="vscode"] .path-node.course-node .course-title { color: #f3f3f3; }
+html[data-theme="vscode"] .path-node.course-node .course-status { background: #263746; border-color: #41617a; color: #9ed1ff; }
+html[data-theme="vscode"] .path-node.course-node.is-complete { background: #1d2b22; }
+html[data-theme="vscode"] .path-node.course-node.is-complete .course-title { color: #c5d0c8; text-decoration-color: #89d185; }
+html[data-theme="vscode"] .path-node.course-node.is-complete .course-status { background: #21412b; border-color: #44724f; color: #a7e7b0; }
+
+@media (max-width: 760px) {
+  .module-course-groups { padding: 0 14px 16px; }
+  .path-node.course-node { flex-wrap: wrap; gap: 8px; }
+  .path-node.course-node .course-title { flex-basis: calc(100% - 54px); }
+  .path-node.course-node .course-time { margin-left: 54px; }
+  .path-node.course-node .course-status { margin-left: auto; }
+  html[data-theme="light"] .content p,
+  html[data-theme="light"] .hero p,
+  html[data-theme="light"] .module-card p,
+  html[data-theme="light"] .continue-card p { font-size: 14px; }
+}

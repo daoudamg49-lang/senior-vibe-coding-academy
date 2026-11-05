@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="themes.css" />
+  <link rel="stylesheet" href="accessibility-themes.css" />
 </head>
 <body>
   <div class="app-shell">
@@ -42,6 +43,7 @@
   <dialog id="glossaryDialog" class="modal glossary-modal"><form method="dialog"><button class="icon-button close-dialog modal-x" aria-label="Fermer">×</button><div id="glossaryBody"></div></form></dialog>
   <script src="curriculum.js"></script>
   <script src="app.js"></script>
+  <script src="ui-enhancements.js"></script>
   <script>
     if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));

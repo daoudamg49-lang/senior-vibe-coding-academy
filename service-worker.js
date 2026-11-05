@@ -6,8 +6,10 @@ const CORE_FILES = [
   './index.html',
   './styles.css',
   './themes.css',
+  './accessibility-themes.css',
   './curriculum.js',
   './app.js',
+  './ui-enhancements.js',
   './manifest.webmanifest',
   './icon.svg'
 ].map(path => new URL(path, self.registration.scope).href);
